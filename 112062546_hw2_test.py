@@ -89,7 +89,7 @@ class Agent():
         if self.skip_count == 5927:
             self.skip_count = 0
         if self.skip_count % self.n_frame_skip == 0:
-            obs = grayscale(observation)
+            obs = crop(observation)
             obs = resize(obs)
             obs = np.transpose(obs, axes=(2,0,1))
             obs = torch.tensor(obs, dtype=torch.float32, device=torch.device('cpu')).unsqueeze(0)
