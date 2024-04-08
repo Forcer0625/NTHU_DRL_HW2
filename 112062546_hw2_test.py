@@ -45,7 +45,6 @@ class DuelingNetwork(nn.Module):
         frame = observation_space.sample()
         frame = crop(frame)
         frame = resize(frame)
-        # stack_frame = np.stack([frame for _ in range(n_frame_stack)])# [H,W] -> [C,H,W]
         batch_stack_frame = np.expand_dims(np.transpose(frame, axes=(2,0,1)), axis=0) # [C,H,W] -> [B,C,H,W]
 
         with torch.no_grad():
